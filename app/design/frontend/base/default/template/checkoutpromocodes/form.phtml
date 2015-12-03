@@ -1,0 +1,34 @@
+<div class='step-title'><h2><?php echo $this->__('Promo Code'); ?></h2></div>
+<?php $getCouponCode = Mage::getSingleton('checkout/cart')->getQuote()->getCouponCode(); ?>
+<div class='step'>
+
+<form id="discount-coupon-form" action="<?php echo Mage::getUrl('checkout/onepage/coupon'); ?>" method="post" >
+
+<?php if ($this->getRequest()->getParam('coupon_code') && $this->getRequest()->getParam('coupon_code') != $getCouponCode): ?>
+<div class='error-msg'>Sorry, but <?php echo $this->getRequest()->getParam('coupon_code'); ?> isn't a valid code!</div>
+<?php elseif ($this->getRequest()->getParam('coupon_code') && $this->getRequest()->getParam('coupon_code') == $getCouponCode): ?>
+<div class='success-msg'><?php echo $this->getRequest()->getParam('coupon_code'); ?> has been applied to your cart!</div>
+<?php endif; ?>
+<table class='data-table'>
+<thead>
+<tr class='first last'><th>
+<label for="coupon_code"> <?php echo $this->__('Enter your coupon code if you have one.') ?></label>
+</th></tr>
+</thead>
+<tbody>
+<tr><td id='codeField'>
+<input id="coupon_code" name="coupon_code" value="<?php echo $getCouponCode; ?>" style='width:50%;'/>
+
+<?php  if(strlen($getCouponCode)) { ?>
+
+<button type="button" class="btn button " onclick="updateCoupon(2);" value="<?php echo $this->__('Remove Coupon')?>"><span><?php echo $this->__('Remove Coupon') ?></span></button>
+
+<?php } ?>
+
+<button type="button" class="btn button" onclick="updateCoupon(1);" value="<?php echo $this->__('Apply Coupon')?>"><span><?php echo $this->__('Apply Coupon') ?></span></button>
+</td></tr>
+</tbody>
+</table>
+</form>
+
+</div>

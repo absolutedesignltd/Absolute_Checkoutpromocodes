@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+<modules>
+    <Absolute_Checkoutpromocodes>
+    <version>0.1.0</version>
+    </Absolute_Checkoutpromocodes>
+</modules>
+
+
+<frontend>
+    <routers>
+		<checkout>
+			<use>standard</use>
+			<args>
+				<modules>
+					<Absolute_Checkoutcontroller before="Mage_Checkout">Absolute_Checkoutpromocodes</Absolute_Checkoutcontroller>
+				</modules>
+			</args>
+		</checkout>
+	</routers>
+	<layout>
+		<updates>
+			<absolute_checkoutpromocodes module="Checkoutpromocodes">
+				<file>checkoutpromocodes.xml</file>
+			</absolute_checkoutpromocodes>
+		</updates>
+	</layout>
+</frontend>
+
+</config>
