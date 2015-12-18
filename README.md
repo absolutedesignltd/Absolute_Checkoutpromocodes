@@ -18,3 +18,7 @@ Clear your cache and disable your code compliation if enabled, and all the block
 Contributions
 -------------
 Contributions are always welcome! Please fork and make pull requests, or contact liam.wiltshire@absolute-design.co.uk for more info!
+
+License
+----------
+Licensed under [OSL-3.0](https://opensource.org/licenses/OSL-3.0) 
